@@ -13,8 +13,6 @@ updates:
   - package-ecosystem: "gomod"
     directories:
       - "**/*"
-    exclude-paths:
-      - "tools/eks-cleanup/**"
     schedule:
       interval: "daily"
       time: "05:00"
@@ -38,16 +36,6 @@ updates:
       containers:
         patterns:
           - "github.com/containers/*"
-  # Weekly only for /tools/eks-cleanup
-  - package-ecosystem: "gomod"
-    directory: "/tools/eks-cleanup"
-    schedule:
-      interval: "weekly"
-      time: "05:00"
-      timezone: "Europe/Paris"
-    commit-message:
-      prefix: "go:"
-    groups:
       aws-sdk:
         patterns:
           - "github.com/aws/aws-sdk-go-v2/*"
